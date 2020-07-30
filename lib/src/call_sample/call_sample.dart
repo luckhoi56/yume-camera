@@ -110,7 +110,9 @@ class _CallSampleState extends State<CallSample> {
     _signaling.switchCamera();
   }
 
-  _muteMic() {}
+  _muteMic() {
+    _signaling.muteMic();
+  }
 
   _buildRow(context, peer) {
     var self = (peer['id'] == _selfId);
@@ -146,7 +148,7 @@ class _CallSampleState extends State<CallSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('P2P Call Sample'),
+        title: Text('Yume Main Camera'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.settings),
@@ -167,7 +169,7 @@ class _CallSampleState extends State<CallSample> {
                       onPressed: _switchCamera,
                     ),
                     FloatingActionButton(
-                      onPressed: _hangUp,
+                      onPressed: deactivate,
                       tooltip: 'Hangup',
                       child: Icon(Icons.call_end),
                       backgroundColor: Colors.pink,

@@ -107,8 +107,15 @@ class Signaling {
 
   void switchCamera() {
     if (_localStream != null) {
-      _localStream.getVideoTracks()[0].switchCamera();
+      bool mMute = true;
+      _localStream.getVideoTracks()[0].setMicrophoneMute(mMute);
+      _localStream.getAudioTracks()[0].setMicrophoneMute(mMute);
     }
+  }
+
+  //implement muteMic function
+  void muteMic() {
+    //
   }
 
   void invite(String peer_id, String media, use_screen) {
